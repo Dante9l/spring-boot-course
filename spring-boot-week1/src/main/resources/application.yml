@@ -1,2 +1,12 @@
 server:
   port: 8888
+spring:
+  application:
+    name: quickstart-service
+
+# 自定义属性
+my:
+  mood:
+    today: 周五
+    content: 期待周末
+    name: "程序员"

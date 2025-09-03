@@ -17,9 +17,15 @@ import java.util.List;
 public class BookController {
     @Autowired
     private BookService bookService;
+    /**
+     * 获取所有图书信息
+     *
+     * @return 图书信息列表，包含所有图书的DTO对象
+     */
     @GetMapping("/getBooks")
     public List<BookDTO> getBooks()
         {
             return bookService.getBooks();
         }
+
 }

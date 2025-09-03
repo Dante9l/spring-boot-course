@@ -17,9 +17,16 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    /**
+     * 处理请求的入口方法
+     *
+     * @param request 请求类型参数，从URL路径中提取
+     * @return 返回处理请求后的结果字符串
+     */
     @GetMapping("/{request}")
     public String handleRequest(@PathVariable RequestType request)
     {
         return customerService.handleRequest(request);
     }
+
 }
