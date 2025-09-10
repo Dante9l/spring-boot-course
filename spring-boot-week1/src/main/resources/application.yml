@@ -10,3 +10,15 @@ my:
     today: 周五
     content: 期待周末
     name: "程序员"
+  feature:
+    enabled: false
+
+zby:
+  sms :
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSId: 2c94811c9860a9c4019917b514101d60
+      accountToken: f661db4e4e884eb2830bb737bdbc3ac1
+      appId: 2c94811c9860a9c4019917b5158a1d67
+      templateId: 1
