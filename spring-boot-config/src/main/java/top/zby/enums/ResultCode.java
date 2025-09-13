@@ -3,6 +3,7 @@ package top.zby.enums;
 public enum ResultCode {
     SUCCESS(200),
     FAIL(500),
+    ERROR(400),
     NOT_FOUND(404),
     UNAUTHORIZED(401),
     FORBIDDEN(403),
