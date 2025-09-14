@@ -3,9 +3,12 @@ package top.zby.model;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.MultipartFile;
 import top.zby.Service.MailService;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.io.File;
 
 /**
  * MailServiceImpl 单元测试类
@@ -247,13 +250,19 @@ class MailServiceImplTest {
      * 测试传入 null 参数的情况
      */
     @Test
-    void testSend_NullMail_ThrowsNullPointerException() {
-        // 验证抛出空指针异常
-        assertThrows(NullPointerException.class, () -> {
-            mailService.send(null);
-        });
+    void testSend_MutiMail_ReturnsSuccessMessage() throws  Exception {
+        // 创建 HTML 邮件对象
+        Mail mail = new Mail();
+        mail.setTo("3487411869@qq.com");
+        mail.setSubject("Test Subject");
+        mail.setContent("test");
+        File file = new File("C:/Users/ASUS/Pictures/Saved Pictures/weqwe.jpg");
+        File file1 = new File("C:/Users/ASUS/Pictures/Saved Pictures/awd.jpg");
+        MultipartFile[] files = new MultipartFile[2];
+        files[0] = new MockMultipartFile("file", file.getName(), "image/jpeg", FileCopyUtils.copyToByteArray(file));
+        files[1] = new MockMultipartFile("file1", file1.getName(), "image/jpeg", FileCopyUtils.copyToByteArray(file1));
+        mailService.sendAttachmentsMail(mail, files);
     }
-
     /**
      * 测试 Mail 对象字段为空的情况
      */

@@ -25,7 +25,7 @@ public class QrCodeController {
     @GetMapping("/qrCode")
     public ResponseEntity<byte[]> qrCode() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        QrCodeUtil.generate(url, 300, 300, ImgUtil.IMAGE_TYPE_PNG, out);
+        QrCodeUtil.generate("HelloWorld", 300, 300, ImgUtil.IMAGE_TYPE_PNG, out);
         byte[] bytes = out.toByteArray();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_PNG);
