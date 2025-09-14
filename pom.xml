@@ -24,6 +24,8 @@
     <modules>
         <module>spring-boot-week1</module>
         <module>spring-boot-config</module>
+        <module>spring-boot-sql</module>
+        <module>spring-boot-exception</module>
     </modules>
     <scm>
         <connection/>
@@ -36,6 +38,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mybatisplus.version>3.5.7</mybatisplus.version>
+        <mysql.version>8.0.33</mysql.version>
     </properties>
     <dependencies>
         <dependency>
@@ -62,19 +66,25 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.8.40</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-            <version>3.5.3</version>
-        </dependency>
-
     </dependencies>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

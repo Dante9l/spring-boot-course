@@ -25,4 +25,3 @@ public class DrinkController {
         return ResponseEntity.ok(response);
     }
 }
-
