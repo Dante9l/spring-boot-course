@@ -9,6 +9,8 @@ public enum ErrorCode {
 
     NOT_FOUND(404, "未找到该资源"),
 
+    UPDATE_FAIL(500,"更新失败,请稍后再试"),
+
     UNAUTHORIZED(401, "登录失效"),
 
     NOT_PERMISSION(403, "权限不足"),

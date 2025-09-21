@@ -102,7 +102,7 @@ public class UserAccount implements Serializable {
 
     /**
      * 创建时间。
-     * @TableField(fill = FieldFill.INSERT): Mybatis-Plus自动填充注解，在执行插入(INSERT)操作时自动填充该字段。
+     * @TableField(fill = FieldFill.INSERT): Mybatis-Plus自动填充注解，在执行插入(INSERT)操作时自动填充该字段。z
      * @JsonFormat: Jackson注解，指定API返回时，将LocalDateTime对象格式化为 "yyyy-MM-dd HH:mm:ss" 字符串，并使用东八区时间。
      */
     @TableField(fill = FieldFill.INSERT)
