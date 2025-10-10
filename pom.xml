@@ -29,6 +29,7 @@
         <module>spring-boot-redis</module>
         <module>spring-boot-filter</module>
         <module>spring-boot-sched</module>
+        <module>spring-boot-websocket</module>
     </modules>
     <scm>
         <connection/>
