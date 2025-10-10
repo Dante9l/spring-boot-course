@@ -13,6 +13,10 @@ public enum ErrorCode {
 
     UNAUTHORIZED(401, "登录失效"),
 
+    PHONE_ERROR(500, "手机号格式错误"),
+
+    SMS_CODE_ERROR(500, "短信验证码错误"),
+
     NOT_PERMISSION(403, "权限不足"),
 
     METHOD_ERROR(405, "方法不允许"),

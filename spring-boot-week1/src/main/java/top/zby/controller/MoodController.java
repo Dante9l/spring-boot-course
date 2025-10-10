@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MoodController {
 
-    @Value("${my.mood.today}")
+    @Value("${my.mood.today:周五}")
     private String today;
 
-    @Value("${my.mood.content}")
+    @Value("${my.mood.content:期待}")
     private String content;
 
-    @Value("${my.mood.name}")
+    @Value("${my.mood.name:程序员}")
     private String name;
 
     @GetMapping("/mood")

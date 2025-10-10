@@ -1,0 +1,31 @@
+
+spring:
+  data:
+    redis:
+      host: 127.0.0.1      # Redis服务器地址，别告诉我你连本地回环地址都不知道
+      port: 6379           # 默认端口，没改过就是它
+      password:
+      database: 0          # 使用哪个数据库，默认0-15共16个
+    lettuce:             # 针对Lettuce的连接池配置，想让你的应用在高并发下不挂掉就好好配
+      pool:
+        min-idle: 8
+        max-idle: 16
+        max-active: 32
+        max-wait: 1000
+
+server:
+  port: 8888
+
+zby:
+  sms :
+    ccp:
+      serverIp: app.cloopen.com
+      port: 8883
+      accountSId: 2c94811c9860a9c4019917b514101d60
+      accountToken: f661db4e4e884eb2830bb737bdbc3ac1
+      appId: 2c94811c9860a9c4019917b5158a1d67
+      templateId: 1
+
+logging:
+  level:
+    org.springframework.data.redis: DEBUG

@@ -6,6 +6,8 @@ spring:
     url: jdbc:mysql://localhost:3306/mp_demo?useUnicode=true&characterEncoding=utf-8&ServerTimezone=Asia/Shanghai
     username: root
     password: 123456
+  config:
+    import: classpath:application-alipay.yml
 
 mybatis-plus:
   configuration:
@@ -16,3 +18,4 @@ mybatis-plus:
       logic-delete-field: deleted # 全局逻辑删除字段
       logic-delete-value: 1
       logic-not-delete-value: 0
+
