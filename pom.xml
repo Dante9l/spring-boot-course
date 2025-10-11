@@ -26,6 +26,10 @@
         <module>spring-boot-config</module>
         <module>spring-boot-sql</module>
         <module>spring-boot-exception</module>
+        <module>spring-boot-redis</module>
+        <module>spring-boot-filter</module>
+        <module>spring-boot-sched</module>
+        <module>spring-boot-websocket</module>
     </modules>
     <scm>
         <connection/>
@@ -40,6 +44,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mybatisplus.version>3.5.7</mybatisplus.version>
         <mysql.version>8.0.33</mysql.version>
+        <datafaker.version>2.2.2</datafaker.version>
+        <fastjson.version>2.0.47</fastjson.version>
+        <jjweb.version>0.12.6</jjweb.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -66,6 +74,12 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.9.28.ALL</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -82,7 +96,21 @@
                 <artifactId>mysql-connector-j</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>net.datafaker</groupId>
+                <artifactId>datafaker</artifactId>
+                <version>${datafaker.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjweb.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -4,7 +4,7 @@ import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import top.zby.common.Result;
+import top.zby.res.Result;
 import top.zby.entity.User;
 import top.zby.service.ExceptionService;
 

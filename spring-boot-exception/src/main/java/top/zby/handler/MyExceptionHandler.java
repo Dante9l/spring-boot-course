@@ -2,7 +2,7 @@ package top.zby.handler;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.zby.common.Result;
+import top.zby.res.Result;
 import top.zby.exception.myException;
 
 @RestControllerAdvice

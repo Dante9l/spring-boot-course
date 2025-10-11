@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  data:
+    redis:
+      host: 127.0.0.1      # Redis服务器地址，别告诉我你连本地回环地址都不知道
+      port: 6379           # 默认端口，没改过就是它
+      password:
+      database: 0          # 使用哪个数据库，默认0-15共16个
+    lettuce:             # 针对Lettuce的连接池配置，想让你的应用在高并发下不挂掉就好好配
+      pool:
+        min-idle: 8
+        max-idle: 16
+        max-active: 32
+        max-wait: 1000
+
+jwt:
+    secret: 5g3df6g7h8j9k0l1m2n3b4v5c6x7z8a9s0q1w2e3r4t5y6u7i8o9p0
+    expire: 1200

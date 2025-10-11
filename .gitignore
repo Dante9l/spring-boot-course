@@ -7,7 +7,7 @@ target/
 ### STS ###
 .apt_generated
 .classpath
-.factorypath
+.factorypathpm
 .project
 .settings
 .springBeans
@@ -32,4 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-spring-boot-config/src/main/resources/application.yml
+spring-boot-config/src/main/resources/application-oss.yml
+spring-boot-sql/src/main/resources/application-alipay.yml
+spring-boot-redis/front/course/node_modules

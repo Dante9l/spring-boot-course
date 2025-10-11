@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-    @Value("${my.feature.enabled}")
+    @Value("${my.feature.enabled:false}")
     private Boolean isAvailable;
 
         /**
