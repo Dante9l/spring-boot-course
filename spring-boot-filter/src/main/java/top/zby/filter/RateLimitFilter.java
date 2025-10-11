@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class RateLimitFilter implements Filter {
     private static final int LIMIT_COUNT = 3;
-    private static final int LIMIT_SECONDS = 180;
+    private static final int LIMIT_SECONDS = 60;
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;

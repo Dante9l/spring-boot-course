@@ -32,6 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
+spring-boot-sched/src/main/resources/application.yml
 spring-boot-config/src/main/resources/application-oss.yml
 spring-boot-sql/src/main/resources/application-alipay.yml
 spring-boot-redis/front/course/node_modules
