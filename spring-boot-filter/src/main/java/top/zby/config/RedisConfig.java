@@ -13,10 +13,6 @@ import org.springframework.data.redis.serializer.SerializationException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-/**
- * @Author: mqxu
- * @Date: 2025/9/24
- */
 @Configuration
 public class RedisConfig {
 

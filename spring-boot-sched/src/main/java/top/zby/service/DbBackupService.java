@@ -22,7 +22,8 @@ public class DbBackupService {
     /**
      * 每日凌晨2:00执行备份
      */
-    @Scheduled(cron = "0 0 2 * * ?")
+    //@Scheduled(cron = "0 0 2 * * ?")
+    @Scheduled(initialDelay = 60000, fixedRate = Long.MAX_VALUE)
     public void backupWithHutool() {
         String host = dbConfig.getHost();
         String user = dbConfig.getUsername();

@@ -47,7 +47,8 @@ public class DailyWeatherService {
     /**
      * 定时任务，每天7:20执行
      */
-    @Scheduled(cron = "0 20 7 * * ?")
+    //@Scheduled(cron = "0 20 7 * * ?")
+    @Scheduled(initialDelay = 60000, fixedRate = Long.MAX_VALUE)
     public void sendDailyWeather() {
         try {
             // 1. 调用和风天气API获取天气预报
