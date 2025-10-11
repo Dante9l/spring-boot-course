@@ -5,6 +5,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.*;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
+import java.lang.management.MemoryUsage;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -89,6 +92,54 @@ public class SimpleTimeWebSocketHandler implements WebSocketHandler {
                 }
             } catch (Exception e) {
                 log.error("发送消息失败，移除会话: {}", session.getId(), e);
+                // 移除有问题的会话
+                return true;
+            }
+        });
+    }
+
+    //没15秒推送一次内存使用率
+    @Scheduled(fixedRate = 1000 * 15)
+    public void sendPeriodicMemoryUsage() {
+        if (SESSIONS.isEmpty()) {
+            log.debug("当前没有活跃的WebSocket连接，不推送内存信息");
+            return;
+        }
+
+        log.info("开始执行定时内存使用率推送任务，当前连接数: {}", SESSIONS.size());
+
+        // 获取Java虚拟机内存使用情况
+        MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
+        MemoryUsage heapMemoryUsage = memoryMXBean.getHeapMemoryUsage();
+
+        // 已用内存 (MB)
+        long usedMemory = heapMemoryUsage.getUsed() / (1024 * 1024);
+        // 最大可用内存 (MB)
+        long maxMemory = heapMemoryUsage.getMax() / (1024 * 1024);
+        double memoryUsagePercentage = (double) heapMemoryUsage.getUsed() / heapMemoryUsage.getMax() * 100;
+
+        String memoryInfo = String.format(
+                "💻 内存使用率: %.2f%% (%d MB / %d MB)",
+                memoryUsagePercentage,
+                usedMemory,
+                maxMemory
+        );
+
+        // 向所有连接的客户端推送消息
+        SESSIONS.values().removeIf(session -> {
+            try {
+                if (session.isOpen()) {
+                    // 调用下面封装的私有方法，向指定的会话发送消息
+                    sendMsg(session, memoryInfo);
+                    // 保留会话
+                    return false;
+                } else {
+                    log.warn("发现已关闭的会话，将其移除: {}", session.getId());
+                    // 移除会话
+                    return true;
+                }
+            } catch (Exception e) {
+                log.error("发送内存信息失败，移除会话: {}", session.getId(), e);
                 // 移除有问题的会话
                 return true;
             }

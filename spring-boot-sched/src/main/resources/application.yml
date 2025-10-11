@@ -44,7 +44,7 @@ weather:
   api:
     key: ded6e9a8ad194a6fb604a31a0e3c3c55  # 和风天气API密钥，前面已申请并复制
     city: 101190101					  # 南京的城市ID（可查和风天气城市列表）
-    url: https://devapi.qweather.com/v7/weather/3d
+    url: https://p27fbyx5gx.re.qweatherapi.com/v7/weather/3d
 # 3. 接收邮件列表
 email:
   recipients: zby99932@gmail.com  # 多个收件人用逗号分隔
@@ -56,7 +56,7 @@ db:
     port: 3306               # 数据库端口
     username: root           # 数据库用户名
     password: 123456         # 数据库密码
-    db-name: blog_system     # 需要备份的数据库名
+    db-name: student     # 需要备份的数据库名
     local-path: ./db-backup/ # 本地备份文件存储路径
 
 # 健康检查阈值配置
